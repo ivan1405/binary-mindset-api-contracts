@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="138d8700-161f-411d-8250-c42209eb1910" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$PROJECT_DIR$/../../../runtimes/apache-maven-3.6.1" />
+        <option name="userSettingsFile" value="C:\Desarrollo\runtimes\apache-maven-3.6.1\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+    <option name="enabledProfiles">
+      <list>
+        <option value="testContracts" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1YfufWT9mCy47Ko3yL0lK3swKob" />
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/binary/mindset/contracts" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.binary.mindset.contracts.config" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Desarrollo\workspaces\04_BINARY_MINDSET\api-contracts\src\main\java\com\binary\mindset\contracts" />
+      <recent name="C:\Desarrollo\workspaces\04_BINARY_MINDSET\api-contracts\src\test-it" />
+      <recent name="C:\Desarrollo\workspaces\04_BINARY_MINDSET\api-contracts" />
+      <recent name="C:\Desarrollo\workspaces\04_BINARY_MINDSET\api-contracts\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="api-contracts" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.binary.mindset.contracts.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.binary.mindset.contracts.Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.Application" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="138d8700-161f-411d-8250-c42209eb1910" name="Default Changelist" comment="" />
+      <created>1583346072076</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1583346072076</updated>
+      <workItem from="1583346074428" duration="1373000" />
+      <workItem from="1583515267741" duration="2475000" />
+      <workItem from="1583517764234" duration="14000" />
+      <workItem from="1583583633345" duration="2052000" />
+      <workItem from="1583585709221" duration="193000" />
+      <workItem from="1583585912745" duration="3639000" />
+      <workItem from="1583592290579" duration="1095000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+</project>

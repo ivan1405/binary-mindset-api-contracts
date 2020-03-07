@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.binary.mindset.contracts</groupId>
+    <artifactId>api-contracts</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <properties>
+        <!-- dependencies -->
+        <spring-boot.version>2.2.5.RELEASE</spring-boot.version>
+        <spring-cloud-contract.version>2.2.2.RELEASE</spring-cloud-contract.version>
+        <spring-spock.version>1.2-groovy-2.5</spring-spock.version>
+        <springfox.version>2.9.2</springfox.version>
+        <swagger-components.version>1.6.0</swagger-components.version>
+        <jackson-databind.version>0.2.1</jackson-databind.version>
+        <fasterxml-jackson.version>2.10.1</fasterxml-jackson.version>
+        <openapi-generator-maven-plugin.version>4.2.3</openapi-generator-maven-plugin.version>
+        <problem-spring-web.version>0.25.2</problem-spring-web.version>
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <build-helper-maven-plugin.version>3.0.0</build-helper-maven-plugin.version>
+        <!-- Groovy dependencies -->
+        <groovy-all.version>3.0.0-beta-3</groovy-all.version>
+        <groovy-eclipse-compiler.version>3.5.0-01</groovy-eclipse-compiler.version>
+        <groovy-eclipse-batch.version>2.5.8-02</groovy-eclipse-batch.version>
+
+        <!-- Other -->
+        <project-base-package>com.binary.mindset.contracts</project-base-package>
+        <start-class>${project-base-package}.Application</start-class>
+        <!-- plugins -->
+        <maven.assembly.plugin.version>2.4</maven.assembly.plugin.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+
+        <!-- Spring dependencies -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!--SpringFox dependencies -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${springfox.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>io.swagger</groupId>
+                    <artifactId>swagger-annotations</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>io.swagger</groupId>
+                    <artifactId>swagger-models</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <version>${swagger-components.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-models</artifactId>
+            <version>${swagger-components.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${springfox.version}</version>
+        </dependency>
+
+        <!-- Zalando problem -->
+        <dependency>
+            <groupId>org.zalando</groupId>
+            <artifactId>problem-spring-web</artifactId>
+            <version>${problem-spring-web.version}</version>
+        </dependency>
+
+        <!--Jackson dependencies-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.module</groupId>
+            <artifactId>jackson-module-afterburner</artifactId>
+            <version>${fasterxml-jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openapitools</groupId>
+            <artifactId>jackson-databind-nullable</artifactId>
+            <version>${jackson-databind.version}</version>
+        </dependency>
+
+        <!-- Test dependencies -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-contract-verifier</artifactId>
+            <version>${spring-cloud-contract.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.spockframework</groupId>
+            <artifactId>spock-core</artifactId>
+            <version>${spring-spock.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.spockframework</groupId>
+            <artifactId>spock-spring</artifactId>
+            <version>${spring-spock.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>${groovy-all.version}</version>
+            <type>pom</type>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+
+    <build>
+        <plugins>
+            <!-- OpenApi generator -->
+            <plugin>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator-maven-plugin</artifactId>
+                <version>${openapi-generator-maven-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>${project.basedir}/src/main/resources/spec/openapi-spec.yml</inputSpec>
+                            <generatorName>spring</generatorName>
+                            <apiPackage>${project-base-package}</apiPackage>
+                            <modelPackage>${project-base-package}.model</modelPackage>
+                            <invokerPackage>${project-base-package}.swagger</invokerPackage>
+                            <skipValidateSpec>false</skipValidateSpec>
+                            <strictSpec>true</strictSpec>
+                            <importMappings>Problem=org.zalando.problem.Problem</importMappings>
+                            <ignoreFileOverride>${project.basedir}/.openapi-generator-ignore</ignoreFileOverride>
+                            <generateApiDocumentation>false</generateApiDocumentation>
+                            <generateModelDocumentation>true</generateModelDocumentation>
+                            <configOptions>
+                                <delegatePattern>true</delegatePattern>
+                                <configPackage>${project-base-package}.swagger</configPackage>
+                            </configOptions>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Spring Cloud Contract Maven plugin, generates Rest-Assured tests and Wiremock-stubs from contracts -->
+            <plugin>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-contract-maven-plugin</artifactId>
+                <version>${spring-cloud-contract.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <packageWithBaseClasses>${project-base-package}</packageWithBaseClasses>
+                    <contractsDirectory>src/test-it/resources/contracts</contractsDirectory>
+                    <basePackageForTests>${project-base-package}.tests</basePackageForTests>
+                    <testMode>MOCKMVC</testMode>
+                    <testFramework>SPOCK</testFramework>
+                    <classifier>stubs</classifier>
+                    <nameSuffixForTests>IntegrationTest</nameSuffixForTests>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>contract-based-tests</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>convert</goal>
+                            <goal>generateStubs</goal>
+                            <goal>generateTests</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Maven compiler plugin, since our tests are written in groovy-->
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <compilerId>groovy-eclipse-compiler</compilerId>
+                    <fork>true</fork>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.codehaus.groovy</groupId>
+                        <artifactId>groovy-eclipse-compiler</artifactId>
+                        <version>${groovy-eclipse-compiler.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.codehaus.groovy</groupId>
+                        <artifactId>groovy-eclipse-batch</artifactId>
+                        <version>${groovy-eclipse-batch.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>${build-helper-maven-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>add-integration-test-source</id>
+                        <phase>generate-test-sources</phase>
+                        <goals>
+                            <goal>add-test-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>${basedir}/src/test-it/groovy</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <!-- Profile to execute the test generated from the contracts -->
+        <profile>
+            <id>testContracts</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <version>3.0.0-M4</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>integration-test</goal>
+                                    <goal>verify</goal>
+                                </goals>
+                                <configuration>
+                                    <includes>**/*IntegrationTest.java</includes>
+                                    <additionalClasspathElements>
+                                        <additionalClasspathElement>${project.build.outputDirectory}
+                                        </additionalClasspathElement>
+                                    </additionalClasspathElements>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>

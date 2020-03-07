@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Surefire suite" duration-ms="3061" started-at="2020-03-07T15:00:38Z" finished-at="2020-03-07T15:00:41Z">
+    <groups>
+    </groups>
+    <test name="Surefire test" duration-ms="3061" started-at="2020-03-07T15:00:38Z" finished-at="2020-03-07T15:00:41Z">
+      <class name="com.binary.mindset.contracts.tests.ContractVerifierIntegrationTest">
+        <test-method status="PASS" signature="validate_get_projects_should_return_200_code_and_list_of_projects(com.binary.mindset.contracts.tests.ContractVerifierIntegrationTest)" name="validate_get_projects_should_return_200_code_and_list_of_projects" duration-ms="3022" started-at="2020-03-07T16:00:38Z" finished-at="2020-03-07T16:00:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validate_get_projects_should_return_200_code_and_list_of_projects -->
+      </class> <!-- com.binary.mindset.contracts.tests.ContractVerifierIntegrationTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>

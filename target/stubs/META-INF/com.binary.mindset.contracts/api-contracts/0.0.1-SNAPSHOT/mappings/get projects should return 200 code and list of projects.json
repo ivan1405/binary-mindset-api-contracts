@@ -1,0 +1,16 @@
+{
+  "id" : "b8832003-cf3a-413b-a00d-7299f2e08359",
+  "request" : {
+    "urlPath" : "/tasklist-management/api/projects",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "[{\"projectId\":1,\"title\":\"My awesome project 1\",\"description\":\"This is the first project created with the best api\"}]",
+    "headers" : {
+      "Content-Type" : "application/json"
+    },
+    "transformers" : [ "response-template" ]
+  },
+  "uuid" : "b8832003-cf3a-413b-a00d-7299f2e08359"
+}
