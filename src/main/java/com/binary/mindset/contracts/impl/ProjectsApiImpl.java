@@ -14,13 +14,19 @@ public class ProjectsApiImpl implements ProjectsApiDelegate {
 
     @Override
     public ResponseEntity<List<Project>> getProjects() {
-        Project project = new Project();
-        project.setProjectId(1);
-        project.setTitle("My awesome project 1");
-        project.setDescription("This is the first project created with the best api");
+        Project project1 = new Project();
+        project1.setProjectId(1);
+        project1.setTitle("My awesome project 1");
+        project1.setDescription("This is the first project created with the best api");
+
+        Project project2 = new Project();
+        project2.setProjectId(2);
+        project2.setTitle("My second project");
+        project2.setDescription("Another awesome project");
 
         List<Project> projects = new ArrayList<Project>(){{
-            add(project);
+            add(project1);
+            add(project2);
         }};
         return new ResponseEntity<>(projects, HttpStatus.OK);
     }
